@@ -1,0 +1,42 @@
+# File: data/anduril_seed_sources.csv
+# Columns:
+# source_name,category,url,fetch_method,api_endpoint_or_params,notes,license_or_tos,priority,recommended_crawl_frequency,entity_identifiers
+
+"Anduril - Newsroom","official","https://www.anduril.com/newsroom/","html","n/a","Official press releases, product announcements, and company statements. Primary source for company messaging and new contracts.","Check robots.txt and site ToS; prefer scraping only public pages; cite source and date.",1,"daily","domain:anduril.com"
+
+"Anduril - Media/Press Kit","official","https://www.anduril.com/media/","html,pdf","n/a","Media assets, press kit PDFs, high-value for images, whitepapers, PDFs that may contain funding/partner details.","Check PDF copyright and site ToS; use Document Intelligence for table extraction.",1,"weekly","domain:anduril.com"
+
+"Anduril - Corporate Home Page","official","https://www.anduril.com/","html","n/a","Product pages (Lattice, Sentry Towers), executive bios, office locations; use for canonical entity info.","Respect robots.txt; prefer user-agent identifying crawler.",2,"weekly","domain:anduril.com"
+
+"USAspending - Anduril recipient","gov","https://www.usaspending.gov/recipient/1869c03a-77bb-b66c-469b-988719bbec4c-C/latest","api (USAspending API)","recipient_id=1869c03a-77bb-b66c-469b-988719bbec4c-C","Canonical federal award data (awards, obligations, award-level metadata). Use API filters for fiscal year and award type.","Public US Government data; review API rate limits and citation guidance.",1,"daily","usa_spending_recipient_id:1869c03a-77bb-b66c-469b-988719bbec4c-C"
+
+"FPDS (Federal Procurement Data System) - Anduril search","gov","https://www.fpds.gov/ezsearch/fpdsportal?indexName=awardfull&q=%22ANDURIL+INDUSTRIES%2C+INC.%22+ULTIMATE_UEI_NAME%3A%22ANDURIL+INDUSTRIES++INC.%22","html, pdf","n/a","FPDS contains contract actions and detailed procurement records; useful for contract-level documents not immediately in USAspending.","FPDS is public; respect crawling limits and prefer API/exports where available.",1,"daily","entity_name:ANDURIL INDUSTRIES, INC."
+
+"SAM.gov - Opportunities & Awards (Anduril)","gov","https://sam.gov/","html,api","query=Anduril+Industries","Search for solicitations, award notices, and contract opportunities mentioning Anduril or subsidiaries. Use SAM API when available for bulk downloads.","Check SAM.gov API terms; prefer API over scraping pages.",1,"daily","search_term:Anduril"
+
+"GSA eLibrary - Contractor Information","gov","https://www.gsaelibrary.gsa.gov/ElibMain/home.do","html","contractNumber=47QTCA25D009R","GSA schedule entries and contract vehicles that may list Anduril as a contractor; useful for contract vehicles and ordering information.","Public federal procurement info; check site ToS.",3,"weekly","contract_number:47QTCA25D009R"
+
+"DoD / Defense.gov - Press Releases","gov","https://www.defense.gov/Newsroom/","html, rss","n/a","Department of Defense press releases and announcements that mention awards or strategic partnerships with Anduril.","Public; cite original release and date.",2,"daily","site_section:Newsroom"
+
+"Reuters - Company / Funding Coverage","news","https://www.reuters.com/company/anduril-industries-inc/","html","n/a","Authoritative, often well-sourced coverage of funding, valuation and major corporate events (e.g., recent funding round). Useful for corroborating funding rounds.","News site ToS; many outlets are paywalled in part—cite and link to articles.",2,"daily","news_source:Reuters"
+
+"Axios - Defense & Business Coverage","news","https://www.axios.com/","html","query=Anduril","High-quality reporting on funding and defense industry moves; use for narrative/context and quotes.","News site ToS; cite with publication date.",3,"daily","news_source:Axios"
+
+"Defense News / Breaking Defense / Defense One","news","https://www.defensenews.com/,https://breakingdefense.com/,https://www.defenseone.com/","html","query=Anduril","Specialist defense trade press; valuable for contract details, program analysis, and industry context.","Respect each site's ToS; prefer article metadata and summaries.",3,"daily","news_sources:defense-trade"
+
+"Wikipedia - Anduril Industries","reference","https://en.wikipedia.org/wiki/Anduril_Industries","html","n/a","Good canonical timeline, founders, and consolidated references. Use only as secondary source; always validate against primary sources.","CC-BY-SA license; when quoting facts, cite original sources linked on the page.",4,"weekly","wikipedia:Anduril_Industries"
+
+"Crunchbase - Company Profile (paywalled)","commercial","https://www.crunchbase.com/organization/anduril-industries","html, api (paid)","n/a","Useful for funding history, investors, and round magnitudes. Often requires subscription—mark as paywalled.","Paywalled/commercial; ensure license permits scraping/usage.",4,"monthly","commercial:Crunchbase"
+
+"PitchBook - Company Data (paywalled)","commercial","https://pitchbook.com/","html, api (paid)","query=Anduril","Alternative VC/PE funding data—paywalled; useful if you have access for cross-checks.","Paywalled/commercial; do not scrape if terms forbid.",4,"monthly","commercial:PitchBook"
+
+"Google Patents / USPTO - Patents & Applications","gov","https://patents.google.com/,https://www.uspto.gov/","html","query=Anduril OR inventor:(Anduril)","Search patents and applications tied to Anduril employees or technologies for IP footprint analysis.","Public patent databases; cite patent number and filing date.",5,"monthly","patent_queries:Anduril"
+
+"Company LinkedIn - Anduril (official posts)","social","https://www.linkedin.com/company/anduril-industries/","html","n/a","Company posts and hires; useful for product launch dates and hiring trends. Note LinkedIn rate limits and ToS.","LinkedIn terms restrict automated scraping; use official APIs if available and permitted.",5,"weekly","social:linkedin_anduril"
+
+"YouTube - Anduril channel / official videos","media","https://www.youtube.com/c/AndurilIndustries/","html, rss","n/a","Talks, demos, product videos—useful for technical specs and on-camera statements. Extract transcripts where possible.","YouTube terms apply; prefer embedding or linking and cite timestamps.",5,"monthly","media:youtube_anduril"
+
+"Local & State filings - State business registries (CA SOS)","gov","https://businesssearch.sos.ca.gov/","html","query=Anduril","Corporate filings, registered agent and state-level documents (e.g., entity status). Useful for legal / registration data.","Public registry data; follow site ToS.",5,"monthly","state_registry:CA"
+
+"Investor / Founders Fund & VC releases","commercial","https://foundersfund.com/,https://a16z.com/","html","query=Anduril","Investor press releases and blog posts that may mention investments or board placements; useful for funding context.","Check investor site ToS; cite release dates.",4,"monthly","investor_sources:FoundersFund"
+
